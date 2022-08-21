@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const mysql = require('mysql');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 5000
 
 
 const connection = mysql.createConnection({
@@ -16,6 +16,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) {
     console.log('error connecting: ' + err.stack);
+    console.log('db connection false')
     return;
   }
   console.log('db connection success');
@@ -35,5 +36,5 @@ connection.connect((err) => {
 app.get('/', (req, res) => {
   res.send('hello')
 })
-
-app.listen(process.env.PORT)
+console.log(PORT)
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
