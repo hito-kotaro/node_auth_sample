@@ -22,14 +22,17 @@ const PORT = 3000;
 // });
 
 
-app.get('/', (req, res) => {
-  connection.query(
-    'SELECT * FROM users',
-    (error, results) => {
-      console.log(results);
-      res.send(results);
-    }
-  );
-});
+// app.get('/', (req, res) => {
+//   connection.query(
+//     'SELECT * FROM users',
+//     (error, results) => {
+//       console.log(results);
+//       res.send(results);
+//     }
+//   );
+// });
 
+app.get('/', (req, res) => {
+  res.send('hello')
+})
 app.listen(process.env.PORT)
