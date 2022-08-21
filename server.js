@@ -5,21 +5,21 @@ const app = express();
 const PORT = 3000;
 
 
-const connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB
-});
+// const connection = mysql.createConnection({
+//   host: process.env.DB_HOST,
+//   user: process.env.DB_USER,
+//   password: process.env.DB_PASSWORD,
+//   database: process.env.DB
+// });
 
 
-connection.connect((err) => {
-  if (err) {
-    console.log('error connecting: ' + err.stack);
-    return;
-  }
-  console.log('db connection success');
-});
+// connection.connect((err) => {
+//   if (err) {
+//     console.log('error connecting: ' + err.stack);
+//     return;
+//   }
+//   console.log('db connection success');
+// });
 
 
 app.get('/', (req, res) => {
@@ -32,4 +32,4 @@ app.get('/', (req, res) => {
   );
 });
 
-app.listen(PORT)
+app.listen(process.env.PORT)
